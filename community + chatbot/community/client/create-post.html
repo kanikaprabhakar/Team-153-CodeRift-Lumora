@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post | Your Blog</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Create a New Post</h1>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="posts.html">Posts</a></li>
+                    <li><a href="create-post.html" aria-current="page">Create Post</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="post-creation">
+                <form id="postForm" class="card">
+                    <div class="form-group">
+                        <label for="postTitle">Title</label>
+                        <input type="text" id="postTitle" placeholder="Enter post title..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea 
+                            id="postContent" 
+                            placeholder="Write your post here..." 
+                            rows="8" 
+                            required
+                            aria-describedby="contentHelp"
+                        ></textarea>
+                        <small id="contentHelp">Share your thoughts, ideas, or stories.</small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary">Save Draft</button>
+                        <button type="submit" class="btn-primary">Publish Post</button>
+                    </div>
+                </form>
+                
+                <div id="message" class="message" role="status" aria-live="polite"></div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Blog. All rights reserved.</p>
+            
+        </div>
+    </footer>
+
+    <script src="js/create-post.js"></script>
+    <!-- <script src="js/theme.js"></script> -->
+</body>
+</html>
+
