@@ -3,280 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumora - Mental Health & Wellness for Women in Tech</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #F8F5F2;
-            color: #333;
-            line-height: 1.6;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            padding: 1.5rem 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            color: #A89CC8;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #6C7B95;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-links a:hover {
-            color: #A89CC8;
-        }
-
-        .nav-links .login-btn {
-            background: #A89CC8;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links .login-btn:hover {
-            background: #E4A0B7;
-            color: white;
-        }
-
-        .hero {
-            padding: 8rem 0 6rem;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(168,156,200,0.1) 0%, rgba(228,160,183,0.1) 100%);
-            margin-top: 4rem;
-        }
-
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: #6C7B95;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #6C7B95;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: #A89CC8;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(168,156,200,0.2);
-        }
-
-        .cta-button:hover {
-            background: #E4A0B7;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(228,160,183,0.3);
-        }
-
-        .secondary-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: transparent;
-            color: #A89CC8;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid #A89CC8;
-        }
-
-        .secondary-button:hover {
-            background: #A89CC8;
-            color: white;
-        }
-
-        .features {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(108,123,149,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(168,156,200,0.1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(168,156,200,0.2);
-            border-color: #E4A0B7;
-        }
-
-        .feature-card h3 {
-            font-family: 'Poppins', sans-serif;
-            color: #6C7B95;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-card p {
-            color: #6C7B95;
-            line-height: 1.8;
-        }
-
-        .feature-card .card-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            margin-top: 1.5rem;
-            background: #F8F5F2;
-            color: #A89CC8;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card .card-button:hover {
-            background: #E4A0B7;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .button-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    <title>Lumora - Mental Health & Wellness</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.284.0/dist/umd/lucide.min.css">
 </head>
 <body>
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">Lumora</a>
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Resources</a>
-                <a href="#">Support</a>
-                <a href="#">Therapy</a>
-                <a href="#" class="login-btn">Login / Sign Up</a>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="moon"></i>
+                </div>
+                <span class="logo-text">Lumora</span>
+            </div>
+            <nav class="main-nav">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
             </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline" id="loginBtn">Log in / SignUp</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Empowering Minds, Supporting Women in Tech</h1>
-            <p>Your safe space for mental well-being, created specifically for women navigating the tech industry.</p>
-            <div class="button-group">
-                <a href="#" class="cta-button">Get Support</a>
-                <a href="#" class="secondary-button">Join a Support Group</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Your Journey to Mental Wellness Starts Here</h1>
+                        <p>Lumora provides the tools, resources, and community support you need to nurture your mental health and live a more balanced life.</p>
+                        <div class="hero-buttons">
+                            <a href="signup.html" class="btn btn-primary">
+                                Get Started
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                            <a href="#features" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-image-wrapper">
+                            <div class="hero-card">
+                                <h3>Find your calm</h3>
+                                <p>Guided meditations, mood tracking, and personalized resources</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Mental Health Resources</h3>
-                    <p>Access curated content on anxiety, work stress, and imposter syndrome specifically for tech professionals.</p>
-                    <a href="#" class="card-button">Browse Resources</a>
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Features</div>
+                    <h2>Everything you need for mental wellness</h2>
+                    <p>Lumora combines powerful tools with a supportive community to help you on your mental health journey.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Support Communities</h3>
-                    <p>Join role-based groups for developers, designers, and students. Participate in live sessions and webinars.</p>
-                    <a href="#" class="card-button">Find Your Group</a>
-                </div>
-                <div class="feature-card">
-                    <h3>Professional Therapy</h3>
-                    <p>Connect with specialized therapists, schedule sessions, and receive automated care reminders.</p>
-                    <a href="#" class="card-button">Book Session</a>
-                </div>
-                <div class="feature-card">
-                    <h3>Mood Tracking</h3>
-                    <p>Monitor your emotional well-being with our interactive mood tracker and receive personalized insights.</p>
-                    <a href="#" class="card-button">Start Tracking</a>
-                </div>
-                <div class="feature-card">
-                    <h3>Daily Wellness</h3>
-                    <p>Practice meditation, receive daily affirmations, and participate in self-care challenges.</p>
-                    <a href="#" class="card-button">Begin Journey</a>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="line-chart"></i>
+                        </div>
+                        <h3>Mood Tracking</h3>
+                        <p>Track your daily mood patterns and identify triggers with our intuitive mood journal.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="brain"></i>
+                        </div>
+                        <h3>Guided Meditation</h3>
+                        <p>Access a library of guided meditations designed to reduce anxiety and improve focus.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <h3>Journal</h3>
+                        <p>Express your thoughts and feelings in a private, secure digital journal with guided prompts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3>Community Support</h3>
+                        <p>Connect with others on similar journeys in our moderated, supportive community forums.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="calendar"></i>
+                        </div>
+                        <h3>Habit Building</h3>
+                        <p>Develop positive mental health habits with customizable reminders and streak tracking.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3>Self-Care Resources</h3>
+                        <p>Access expert-curated articles, videos, and exercises for your mental wellbeing.</p>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Testimonials</div>
+                    <h2>Hear from our community</h2>
+                    <p>Real stories from real people who have transformed their mental wellbeing with Lumora.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <img src="https://via.placeholder.com/40" alt="Jamie D.">
+                            </div>
+                            <div>
+                                <h3>Jamie D.</h3>
+                                <p>Using Lumora for 8 months</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-content">
+                            "The daily mood tracking has helped me identify patterns I never noticed before. I'm much more aware of my triggers now and can take proactive steps before anxiety takes over."
+                        </p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <img src="https://via.placeholder.com/40" alt="Michael R.">
+                            </div>
+                            <div>
+                                <h3>Michael R.</h3>
+                                <p>Using Lumora for 1 year</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-content">
+                            "The guided meditations have been a game-changer for my sleep issues. I've gone from restless nights to peaceful sleep, and my overall anxiety has decreased significantly."
+                        </p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <img src="https://via.placeholder.com/40" alt="Sarah L.">
+                            </div>
+                            <div>
+                                <h3>Sarah L.</h3>
+                                <p>Using Lumora for 6 months</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-content">
+                            "The community support has been invaluable. Knowing I'm not alone in my struggles and having a safe space to share has made all the difference in my recovery journey."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Resources</div>
+                    <h2>Expert-curated mental health resources</h2>
+                    <p>Access our library of articles, videos, and exercises created by mental health professionals.</p>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <i data-lucide="book-open"></i>
+                            <h3>Articles</h3>
+                        </div>
+                        <p>In-depth articles on various mental health topics, from anxiety management to building resilience.</p>
+                        <a href="resources/articles.html" class="btn btn-outline btn-full">
+                            Browse Articles
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <i data-lucide="video"></i>
+                            <h3>Videos</h3>
+                        </div>
+                        <p>Guided meditation videos, expert interviews, and educational content on mental wellness.</p>
+                        <a href="resources/videos.html" class="btn btn-outline btn-full">
+                            Watch Videos
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-header">
+                            <i data-lucide="file-text"></i>
+                            <h3>Exercises</h3>
+                        </div>
+                        <p>Practical exercises and worksheets to help you develop coping skills and improve mental resilience.</p>
+                        <a href="resources/exercises.html" class="btn btn-outline btn-full">
+                            Try Exercises
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i data-lucide="moon"></i>
+                    </div>
+                    <span class="logo-text">Lumora</span>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p class="copyright">© 2025 Lumora. All rights reserved.</p>
+            </div>
         </div>
-    </section>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="landing.js"></script>
 </body>
 </html>
