@@ -708,6 +708,7 @@ section {
     background-color: var(--color-card);
     box-shadow: var(--shadow-md);
     transition: var(--transition-transform), var(--transition-shadow);
+    cursor: pointer;
 }
 
 .dark .testimonial-card {
