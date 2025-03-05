@@ -1,8 +1,52 @@
-Lumora - An all - in - one tool for mental health tailored for women
-Women in the tech industry often face high stress, burnout, imposter syndrome, and workplace bias, leading to deteriorating mental health. Despite the growing awareness, affordable, accessible, and tailored mental health support for women in tech remains limited. Existing solutions lack a safe, inclusive, and interactive space designed specifically for them. We present Lumora, a mental health and wellness platform tailored for women in tech, providing :
-1. AI-Powered Chatbot : Offering 24/7 mental health support using various models to guide users through anxiety, burnout, and stress-related issues
-2. Online Community : A safe space for women in tech to connect, share experiences, and support each other through forums
-3. Therapist Booking : Enables users to book virtual sessions with mental health professionals or mentors
-4. Personalized Self-Care Plans : Generates customized well-being plans based on user input, including meditation, journaling, and mindfulness exercises
-5. Mood Tracker & Insights : Helps users track mental health progress and receive actionable insights for self-improvement.
-Application Area: Women Empowerment & Diversity in Tech.
+🌿 Lumora – A Safe Space for Women's Mental Health
+Empowering, Supporting, and Healing
+
+🛠 About Lumora
+Lumora is a compassionate and supportive mental health platform designed exclusively for women. It provides a safe space to seek guidance, learn coping mechanisms, and connect with resources for emotional well-being.
+
+💖 Features:
+✅ AI-powered chatbot for emotional support
+✅ Self-care and mindfulness exercises
+✅ Journaling and mood tracking
+✅ Resources on anxiety, depression, and self-love
+✅ Crisis support and emergency contacts
+
+🚀 Tech Stack
+🔹 Frontend: HTML, CSS, JavaScript
+🔹 Backend: Node.js, Express.js
+🔹 AI Integration: Google Gemini AI
+🔹 Database (Optional): MongoDB for user data (if implemented)
+
+🔧 Setup & Installation
+1️⃣ Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/lumora.git
+cd lumora
+2️⃣ Install Dependencies
+bash
+Copy
+Edit
+npm install
+3️⃣ Set Up Environment Variables
+Create a .env file and add:
+
+ini
+Copy
+Edit
+PORT=3000
+GEMINI_API_KEY=your_api_key_here
+4️⃣ Run the Server
+bash
+Copy
+Edit
+node server.js
+or
+
+bash
+Copy
+Edit
+npm start
+5️⃣ View the Project
+Open http://localhost:3000 in your browser.
