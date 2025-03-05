@@ -10,9 +10,9 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
     });
 
     if (response.ok) {
-        document.getElementById("message").innerText = "✅ Post submitted!";
+        document.getElementById("message").innerText = "Post submitted!";
         document.getElementById("postForm").reset();
     } else {
-        document.getElementById("message").innerText = "❌ Failed to submit post.";
+        document.getElementById("message").innerText = "Failed to submit post.";
     }
 });

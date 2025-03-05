@@ -78,6 +78,18 @@
     margin-bottom: var(--spacing-md);
   }
   
+  h2 {
+    color: var(--color-primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  h3 {
+    color: var(--color-primary-dark);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
   nav {
     width: 100%;
   }
@@ -118,11 +130,6 @@
     padding: var(--spacing-xl) 0;
   }
   
-  .post-creation {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
   .card {
     background-color: var(--color-card);
     border-radius: var(--radius);
@@ -132,7 +139,112 @@
     border: 1px solid var(--color-border);
   }
   
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+  
+  .hero h2 {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .hero p {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-text);
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+  }
+  
+  /* Features Section */
+  .features {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  .feature-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+  
+  /* Posts Section */
+  .posts-section {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .post {
+    background: var(--color-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--color-primary);
+  }
+  
+  .post p {
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .post-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+  }
+  
+  .loading-indicator {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--color-text-light);
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+  
+  .empty-state p {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-light);
+  }
+  
+  .error-message {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+  }
+  
   /* Form Styling */
+  .post-creation {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
   .form-group {
     margin-bottom: var(--spacing-lg);
     text-align: left;
@@ -183,6 +295,9 @@
     gap: var(--spacing-md);
   }
   
+  /* Buttons */
+  .btn-primary,
+  .btn-secondary,
   button {
     padding: var(--spacing-md) var(--spacing-lg);
     border: none;
@@ -191,6 +306,9 @@
     cursor: pointer;
     transition: var(--transition);
     font-size: 1rem;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
   }
   
   .btn-primary {
@@ -215,7 +333,9 @@
     background-color: rgba(125, 78, 157, 0.1);
   }
   
-  button:active {
+  button:active,
+  .btn-primary:active,
+  .btn-secondary:active {
     transform: translateY(1px);
   }
   
@@ -240,7 +360,7 @@
   }
   
   /* Footer */
-  footer {
+  /* footer {
     background-color: var(--color-primary-dark);
     color: white;
     padding: var(--spacing-lg) 0;
@@ -251,9 +371,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+  } */
   
-  #theme-toggle {
+  /* #theme-toggle {
     background: transparent;
     border: none;
     color: white;
@@ -264,9 +384,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
   
-  .dark-mode .light-icon {
+  /* .dark-mode .light-icon {
     display: none;
   }
   
@@ -280,38 +400,7 @@
   
   .dark-icon {
     display: none;
-  }
-  
-  /* Post List Styling */
-  #postList {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-  }
-  
-  .post {
-    background: var(--color-card);
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border-left: 5px solid var(--color-primary);
-  }
-  
-  .post h3 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-primary-dark);
-  }
-  
-  .post p {
-    color: var(--color-text);
-  }
-  
-  .post-meta {
-    margin-top: var(--spacing-md);
-    font-size: 0.875rem;
-    color: var(--color-text-light);
-  }
+  } */
   
   /* Responsive Design */
   @media (min-width: 768px) {
@@ -330,15 +419,23 @@
   }
   
   @media (max-width: 767px) {
+    .cta-buttons,
     .form-actions {
       flex-direction: column;
     }
   
+    .btn-primary,
+    .btn-secondary,
     button {
       width: 100%;
     }
   
     footer .container {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+  
+    .posts-header {
       flex-direction: column;
       gap: var(--spacing-md);
     }

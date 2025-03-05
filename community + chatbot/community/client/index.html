@@ -3,16 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Home</title>
+    <title>Lumora | Your Community</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
-    <h1>Welcome to the Community</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="posts.html">Posts</a>
-        <!-- <a href="about.html">About</a> -->
-    </nav>
+    <header>
+        <div class="container">
+            <h1>Lumora : Community Home</h1>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="posts.html">Posts</a></li>
+                    <li><a href="create-post.html">Create Post</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="hero card">
+                <h2>Connect, Share, and Grow Together</h2>
+                <p>Join our vibrant community where you can share your thoughts, read interesting posts from others, and engage in meaningful conversations.</p>
+                
+                <div class="cta-buttons">
+                    <a href="posts.html" class="btn-primary">Browse Posts</a>
+                    <a href="create-post.html" class="btn-secondary">Share Your Thoughts</a>
+                </div>
+            </section>
+            
+            <section class="features">
+                <div class="feature-grid">
+                    <div class="feature-card card">
+                        <h3>Connect</h3>
+                        <p>Build relationships with like-minded individuals in our growing community.</p>
+                    </div>
+                    
+                    <div class="feature-card card">
+                        <h3>Share</h3>
+                        <p>Express your ideas, experiences, and knowledge with others.</p>
+                    </div>
+                    
+                    <div class="feature-card card">
+                        <h3>Discover</h3>
+                        <p>Explore diverse perspectives and learn something new every day.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <!-- <div class="container">
+            <p>&copy; 2024 Your Community. All rights reserved.</p>
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button> -->
+        <!-- </div> --> 
+    </footer>
+
     <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 </html>
+
