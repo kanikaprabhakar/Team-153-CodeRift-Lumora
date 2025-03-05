@@ -1285,3 +1285,17 @@ section {
     font-weight: 500;
     margin-bottom: var(--spacing-4);
 }
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile span {
+    font-weight: 500;
+    color: var(--color-foreground);
+}
+
+.user-profile button {
+    margin-left: 10px;
+}

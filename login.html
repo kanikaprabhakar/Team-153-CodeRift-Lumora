@@ -550,101 +550,102 @@
     </div>
    
     <script>
-        let captcha;
-        let captchaVerified = false;
-    
-        // Function to generate CAPTCHA
-        function TASK1() {
-            captcha = document.getElementById("image");
-            let unique = "";
-            let list = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            for (let i = 0; i < 5; i++) {
-                unique += list.charAt(Math.random() * list.length);
-            }
-            captcha.innerHTML = unique;
+    let captcha;
+    let captchaVerified = false;
+
+    // Function to generate CAPTCHA
+    function TASK1() {
+        captcha = document.getElementById("image");
+        let unique = "";
+        let list = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (let i = 0; i < 5; i++) {
+            unique += list.charAt(Math.random() * list.length);
         }
-    
-        // Function to verify CAPTCHA
-        function TASK2() {
-            let user_input = document.getElementById("submit").value;
-            if (user_input === captcha.innerHTML) {
-                document.getElementById("key").innerHTML = "<span style='color: green;'>Matching</span>";
-                captchaVerified = true;
-                document.getElementById('signupBtn').disabled = false;
-            } else {
-                document.getElementById("key").innerHTML = "<span style='color: red;'>Not Matching</span>";
-                TASK1(); // Regenerate CAPTCHA
-                captchaVerified = false;
-                document.getElementById('signupBtn').disabled = true;
-            }
+        captcha.innerHTML = unique;
+    }
+
+    // Function to verify CAPTCHA
+    function TASK2() {
+        let user_input = document.getElementById("submit").value;
+        if (user_input === captcha.innerHTML) {
+            document.getElementById("key").innerHTML = "<span style='color: green;'>Matching</span>";
+            captchaVerified = true;
+            document.getElementById('signupBtn').disabled = false;
+        } else {
+            document.getElementById("key").innerHTML = "<span style='color: red;'>Not Matching</span>";
+            TASK1(); // Regenerate CAPTCHA
+            captchaVerified = false;
+            document.getElementById('signupBtn').disabled = true;
         }
-    
-        // Toggle between login and signup forms
-        const sign_in_btn = document.querySelector('#sign-in-btn');
-        const sign_up_btn = document.querySelector('#sign-up-btn');
-        const container = document.querySelector('.container');
-    
-        sign_up_btn.addEventListener('click', () => {
-            container.classList.add('sign-up-mode');
+    }
+
+    // Toggle between login and signup forms
+    const sign_in_btn = document.querySelector('#sign-in-btn');
+    const sign_up_btn = document.querySelector('#sign-up-btn');
+    const container = document.querySelector('.container');
+
+    sign_up_btn.addEventListener('click', () => {
+        container.classList.add('sign-up-mode');
+    });
+
+    sign_in_btn.addEventListener('click', () => {
+        container.classList.remove('sign-up-mode');
+    });
+
+    // Login Form Submission
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+
+        const response = await fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
         });
-    
-        sign_in_btn.addEventListener('click', () => {
-            container.classList.remove('sign-up-mode');
-        });
-    
-        // Login Form Submission
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
-    
-            const response = await fetch('http://localhost:3001/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password }),
-            });
-    
-            const result = await response.json();
-            if (response.ok) {
-                alert(result.message);
-                window.location.href = result.redirectUrl; // Redirect to landing page
-            } else {
-                alert(result.message);
-            }
-        });
-    
-        // Signup Form Submission
-        document.getElementById('signupForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-    
-            if (!captchaVerified) {
-                alert("Please verify the CAPTCHA.");
-                return;
-            }
-    
-            const username = document.getElementById('signupUsername').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-    
-            const response = await fetch('http://localhost:3001/signup', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, email, password }),
-            });
-    
-            const result = await response.json();
+
+        const result = await response.json();
+        if (response.ok) {
             alert(result.message);
-    
-            if (response.ok) {
-                // Clear the form and switch to login mode after successful signup
-                document.getElementById('signupForm').reset();
-                container.classList.remove('sign-up-mode');
-                TASK1(); // Regenerate CAPTCHA
-            }
+            // Redirect to landing page with username as a query parameter
+            window.location.href = `${result.redirectUrl}?username=${username}`;
+        } else {
+            alert(result.message);
+        }
+    });
+
+    // Signup Form Submission
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!captchaVerified) {
+            alert("Please verify the CAPTCHA.");
+            return;
+        }
+
+        const username = document.getElementById('signupUsername').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+
+        const response = await fetch('http://localhost:3001/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password }),
         });
-    
-        // Generate initial CAPTCHA on page load
-        window.onload = TASK1;
-    </script>
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (response.ok) {
+            // Clear the form and switch to login mode after successful signup
+            document.getElementById('signupForm').reset();
+            container.classList.remove('sign-up-mode');
+            TASK1(); // Regenerate CAPTCHA
+        }
+    });
+
+    // Generate initial CAPTCHA on page load
+    window.onload = TASK1;
+</script>
 </body>
 </html>

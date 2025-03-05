@@ -21,9 +21,15 @@
                 <a href="#" class="nav-link">Community</a>
                 <a href="#" class="nav-link">Self care</a>
                 <a href="#" class="nav-link">Chatbot</a>
-                <a href="therapist-booking.html" class="nav-link">Therapist Bookings</a>
+                <a href="#" class="nav-link" id="therapistBookingLink">Therapist Bookings</a>
             </nav>
             <div class="header-actions">
+                <!-- User profile section (hidden by default) -->
+                <div id="userProfile" class="user-profile" style="display: none;">
+                    <span id="username"></span>
+                    <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                </div>
+                <!-- Login/Signup buttons (visible by default) -->
                 <a href="login.html" class="btn btn-outline" id="loginBtn">Log in / SignUp</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
