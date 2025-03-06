@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     lucide.createIcons();
 
     // Get username from the URL query parameter
-    const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
 
     if (!username) {
@@ -97,10 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(() => {
                 window.location.href = "login.html"; // Redirect to login page after logout
             })
-            .catch(error => {
-                console.error("Error logging out:", error);
-                alert("Failed to log out. Please try again.");
-            });
+            // .catch(error => {
+            //     console.error("Error logging out:", error);
+            //     alert("Failed to log out. Please try again.");
+            // });
     });
 });
 
@@ -152,10 +151,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `).join('');
             })
-            .catch(error => {
-                console.error("Error fetching bookings:", error);
-                alert("Failed to fetch bookings. Please try again.");
-            });
+            // .catch(error => {
+            //     console.error("Error fetching bookings:", error);
+            //     alert("Failed to fetch bookings. Please try again.");
+            // });
     } else {
         // Redirect to login if username is not provided
         window.location.href = "login.html";
@@ -199,10 +198,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `).join('');
             })
-            .catch(error => {
-                console.error("Error fetching bookings:", error);
-                alert("Failed to fetch bookings. Please try again.");
-            });
+            // .catch(error => {
+            //     console.error("Error fetching bookings:", error);
+            //     alert("Failed to fetch bookings. Please try again.");
+            // });
     });
 
     // Logout functionality
@@ -217,3 +216,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 });
+// In your login.js or wherever the login logic is handled
+function handleLogin(username) {
+    sessionStorage.setItem("username", username);
+    window.location.href = "landing.html"; // Redirect to landing page after login
+}
