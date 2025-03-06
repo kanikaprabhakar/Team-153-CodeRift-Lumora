@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+package.json
+
+# Logs
+logs/
+*.log
+
+
+.env
+
+# Data storage files
+server/data/posts.json
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+
+.vscode/
+
+# Cache & Temp files
+*.cache
+*.tmp
