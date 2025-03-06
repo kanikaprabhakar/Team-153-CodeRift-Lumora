@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapist Booking</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.284.0/dist/umd/lucide.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="moon"></i>
+                </div>
+                <span class="logo-text">Lumora</span>
+            </div>
+            <nav class="main-nav">
+                <a href="landing.html" class="nav-link">Home</a>
+                <a href="therapist-booking.html" class="nav-link">Therapist Booking</a>
+            </nav>
+            <div class="header-actions">
+                <div id="userProfile" class="user-profile">
+                    <span id="username"></span>
+                    <a href="/logout" class="btn btn-outline">Logout</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Therapist Booking</h1>
+                <p>Book a therapist that suits your needs and schedule.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Available Therapists</h2>
+                <div id="therapistsList" class="features-grid"></div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Your Bookings</h2>
+                <div class="booking-buttons">
+                    <button id="pastBookingsBtn" class="btn btn-outline">Past Bookings</button>
+                    <button id="upcomingBookingsBtn" class="btn btn-outline">Upcoming Appointments</button>
+                </div>
+                <div id="bookingsList" class="features-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i data-lucide="moon"></i>
+                    </div>
+                    <span class="logo-text">Lumora</span>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p class="copyright">© 2025 Lumora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        const username = sessionStorage.getItem("username"); // Get the logged-in user's username
+
+        if (!username) {
+            window.location.href = "login.html"; // Redirect to login if not logged in
+        }
+
+        document.getElementById("username").textContent = username;
+
+        // Fetch and display therapists
+        fetch("/therapists")
+            .then(response => response.json())
+            .then(therapists => {
+                const therapistsList = document.getElementById("therapistsList");
+                therapistsList.innerHTML = therapists.map(therapist => `
+                    <div class="feature-card">
+                        <h3>${therapist.name}</h3>
+                        <p>Specialization: ${therapist.specialization}</p>
+                        <p>Availability: ${therapist.available ? "Available" : "Not Available"}</p>
+                        ${therapist.available ? `
+                            <button onclick="bookTherapist(${therapist.id})" class="btn btn-primary">Book Now</button>
+                        ` : ""}
+                    </div>
+                `).join("");
+            });
+
+        // Function to book a therapist
+        function bookTherapist(therapistId) {
+            const date = prompt("Enter the date (YYYY-MM-DD):");
+            const time = prompt("Enter the time (HH:MM):");
+
+            if (!date || !time) {
+                alert("Date and time are required.");
+                return;
+            }
+
+            fetch("/book-therapist", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ therapistId, username, date, time })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.booking) {
+                        window.location.reload(); // Refresh the page to show updated bookings
+                    }
+                });
+        }
+
+        // Fetch and display past bookings
+        document.getElementById("pastBookingsBtn").addEventListener("click", () => {
+            fetch(`/user-bookings/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    const bookingsList = document.getElementById("bookingsList");
+                    bookingsList.innerHTML = data.pastBookings.map(booking => `
+                        <div class="feature-card">
+                            <h3>Booking ID: ${booking.id}</h3>
+                            <p>Date: ${booking.date}</p>
+                            <p>Time: ${booking.time}</p>
+                            <p>Status: ${booking.status}</p>
+                        </div>
+                    `).join("");
+                });
+        });
+
+        // Fetch and display upcoming bookings
+        document.getElementById("upcomingBookingsBtn").addEventListener("click", () => {
+            fetch(`/user-bookings/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    const bookingsList = document.getElementById("bookingsList");
+                    bookingsList.innerHTML = data.upcomingBookings.map(booking => `
+                        <div class="feature-card">
+                            <h3>Booking ID: ${booking.id}</h3>
+                            <p>Date: ${booking.date}</p>
+                            <p>Time: ${booking.time}</p>
+                            <p>Status: ${booking.status}</p>
+                        </div>
+                    `).join("");
+                });
+        });
+    </script>
+</body>
+</html>
