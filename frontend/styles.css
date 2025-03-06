@@ -1,0 +1,209 @@
+/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #151313;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.brandlogo{
+    font-size: 50px;
+    margin: -15px -25px;
+    background: -webkit-linear-gradient(#f35bd7, #9c02cb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  
+
+}
+
+/* Form and Heading Styling */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 25px;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #bbb;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Selectable Cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #1e1e1e, #292929);
+    padding: 20px;
+    border-radius: 10px;
+    width: 260px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    
+}
+
+/* Custom Label Styling */
+.card label {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    transition: 0.3s;
+    
+}
+
+/* When Selected */
+.card.selected {
+    background-color: #7B61FF;
+    color: white;
+    border-color: #7B61FF;
+}
+
+
+.problem-card {
+    display: inline-block;
+    width: 290px;
+    margin: 20px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.problem-card:hover {
+    background-color: #b061ff;
+}
+
+.problem-card.selected {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #388E3C;
+}
+
+#solutionContainer {
+    background: #f9f9f9; /* Light background */
+    border-left: 5px solid #7B61FF; /* Highlight border */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#solutionContainer h3 {
+    color: #7B61FF; /* Heading color */
+    margin-bottom: 10px;
+}
+
+#solutionContainer ul {
+    padding-left: 20px;
+}
+
+#solutionContainer li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+
+.strategy-name {
+    color: #ff5733; /* Change this to any color you want */
+    font-weight: bold;
+}
+.bold-text {
+    color:#7B61FF; /* Change this to your preferred color */
+    font-weight: bold;
+}
+
+
+
+
+/* CSS */
+.buttonSub {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.buttonSub:active,
+.buttonSub:hover {
+  outline: 0;
+}
+
+.buttonSub span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.buttonSub:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .buttonSub{
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
