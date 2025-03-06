@@ -3,7 +3,7 @@ document.getElementById("postForm").addEventListener("submit", async (e) => {
 
     const postContent = document.getElementById("postContent").value;
 
-    const response = await fetch("/api/posts", {
+    const response = await fetch("http://localhost:5001/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: postContent }),
